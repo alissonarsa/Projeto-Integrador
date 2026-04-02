@@ -2,36 +2,30 @@
 
 Sistema de monitoramento e irrigação automatizada para horta comunitária.
 
-## Projeto Integrador — Engenharia de Software
+## Projeto Integrador — UNASP-EC
 
-Repositório destinado às entregas da disciplina de **Engenharia de Software** (Prof. Daniel) dentro do Projeto Integrador do 5º período de Engenharia de Computação — UNASP-EC.
+Repositório da disciplina de **Engenharia de Software** (Prof. Daniel) — Projeto Integrador do 5º período de Engenharia de Computação.
 
 ## Equipe
 
-| Nome              | GitHub                                              |
-|-------------------|-----------------------------------------------------|
-| Leonardo Rossetti | [@leorfrr](https://github.com/leorfrr)             |
-| Alisson Aldenir   | TBD                                                 |
-| Luisa Felix       | TBD                                                 |
+| Nome              | GitHub                                  |
+|-------------------|-----------------------------------------|
+| Leonardo Rossetti | [@leorfrr](https://github.com/leorfrr) |
+| Alisson Aldenir   | TBD                                     |
+| Luisa Felix       | TBD                                     |
 
-## Visão Geral do Sistema
+## Visão Geral
 
-O sistema monitora variáveis ambientais de uma horta comunitária (temperatura, umidade do solo, luminosidade) por meio de sensores conectados a um ESP32. Os dados são transmitidos via Wi-Fi para uma API REST, persistidos em banco de dados e exibidos em um dashboard web em tempo real. A irrigação é acionada automaticamente com base em regras de limiar.
-
-**Fluxo técnico:**
+Sensores (DHT22, capacitivo de solo, LDR) coletam dados ambientais de canteiros de uma horta comunitária. Um ESP32 processa as leituras, aciona a irrigação automaticamente e envia os dados via Wi-Fi para uma API REST. Os dados são persistidos em banco de dados e exibidos em um dashboard web.
 
 ```
-Sensores (DHT22, capacitivo de solo, LDR)
-  → ESP32
-    → Wi-Fi
-      → API REST
-        → Banco de Dados
-          → Dashboard Web
+Sensores → ESP32 → Wi-Fi → API REST → Banco de Dados → Dashboard Web
 ```
 
-## Estrutura da Documentação
+## Documentação
 
 - [Processo](process.md)
 - [Métricas](metrics.md)
 - [Stakeholders](requirements/stakeholders.md)
-- [SRS — Especificação de Requisitos](requirements/srs.md)
+- [Backlog](requirements/backlog.md)
+- [SRS](requirements/srs.md)
