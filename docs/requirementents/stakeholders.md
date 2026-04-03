@@ -2,26 +2,27 @@
 
 ## Usuários Diretos
 
-- **Membros da comunidade / pequenos produtores:** acompanham o estado dos canteiros pelo dashboard e recebem capacitação na oficina de extensão.
-- **Responsável operacional da horta:** monitora alertas e aciona manutenção quando necessário.
+- **Responsavel operacional da horta:** acompanha o estado dos canteiros, consulta alertas e toma acoes de manutencao quando necessario.
+- **Membros da comunidade / pequenos produtores:** visualizam o dashboard, acompanham o historico e participam das oficinas de extensao.
 
-## Técnicos e Mantenedores
+## Operacao e manutencao
 
-- **Equipe de hardware:** montagem dos sensores, ESP32, alimentação elétrica e manutenção física.
-- **DBA / Analista de Dados:** modelagem do banco, API REST e integridade dos dados.
-- **Desenvolvedor Web:** dashboard, alertas, relatórios e manual do usuário.
+- **Equipe de hardware / instalador:** monta sensores, ESP32, rele, bomba, alimentacao e caixa hermetica.
+- **Equipe de manutencao eletrica:** verifica protecao, alimentacao, bateria, painel solar e seguranca da instalacao.
+- **DBA / responsavel pela API:** garante persistencia, contratos da API e integridade dos dados.
+- **Desenvolvedor web:** implementa dashboard, alertas, relatorios e material de apoio ao usuario.
 
-## Agentes Indiretos
+## Stakeholders academicos e institucionais
 
-- **Professores (Abraão, Lilian, Rodrigo, Daniel):** orientam e avaliam os módulos de cada disciplina.
-- **UNASP-EC:** infraestrutura acadêmica e articulação com a comunidade parceira.
-- **Comunidade do entorno:** beneficiária do projeto de extensão (cartilha e oficinas).
+- **Professores orientadores (Abraao, Lilian, Rodrigo e Daniel):** validam os artefatos tecnicos e os marcos do PI.
+- **UNASP-EC:** fornece o contexto academico, a infraestrutura e a articulacao com a comunidade parceira.
+- **Comunidade do entorno:** recebe o beneficio direto do projeto e participa das acoes de extensao.
 
 ## Segurança
 
-- **Atacante (threat actor):** agente que pode tentar interceptar dados via Wi-Fi ou manipular a API para enviar leituras falsas.
+- **Atacante (threat actor):** pode tentar interceptar trafego Wi-Fi, enviar leituras falsas ou acessar endpoints sem autorizacao.
 
 ## Reguladores
 
-- **LGPD / ANPD:** aplicável caso o sistema armazene dados pessoais dos usuários.
-- **Normas elétricas (NR-10 / NBR 5410):** aplicáveis à instalação elétrica e painel solar.
+- **ANPD / LGPD:** aplicavel caso o sistema armazene dados pessoais de usuarios ou responsaveis pela horta.
+- **Normas eletricas (NR-10 / NBR 5410):** aplicaveis a alimentacao, protecao e instalacao do sistema em campo.
