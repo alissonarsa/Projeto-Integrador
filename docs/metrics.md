@@ -1,31 +1,16 @@
 # Métricas
 
-## Métricas de Fluxo
+Estas metricas acompanham **fluxo** e **qualidade** do time. Elas sao usadas para diagnostico e melhoria do processo, nunca para punicao individual. A coleta ocorre na review de sexta-feira.
 
-| Métrica | Descrição | Meta |
-|---------|-----------|------|
-| Lead Time | Tempo entre criação da issue e merge do PR | ≤ 5 dias úteis |
-| Cycle Time | Tempo entre início do trabalho e merge do PR | ≤ 3 dias úteis |
-| Throughput | Quantidade de issues concluídas por sprint | ≥ 3 issues/sprint |
-| WIP (Work in Progress) | Issues em andamento simultâneo por pessoa | ≤ 2 |
+| ID | Metrica | Tipo | Definicao | Meta inicial | Como coletar |
+|----|---------|------|-----------|--------------|--------------|
+| M-01 | Lead Time de PR | Fluxo | Tempo entre a abertura do PR e o merge em `main`. | Mediana <= 5 dias uteis | Historico do GitHub (`merged_at - created_at`) |
+| M-02 | Tempo ate o primeiro review | Fluxo | Tempo entre a abertura do PR e o primeiro review submetido por outro membro. | <= 48 h | Historico do GitHub (`first_review_at - created_at`) |
+| M-03 | Taxa de falha em mudancas | Qualidade | Percentual de PRs mergeados que geraram bug, regressao ou hotfix em ate 72 h. | <= 20% | Relacao entre PRs mergeados e issues/PRs de correcao vinculados |
+| M-04 | Taxa de sucesso do fluxo integrado parcial | Qualidade / Integracao | Percentual de testes aprovados no fluxo Sensor -> ESP32 -> Wi-Fi -> API -> Banco. | >= 80% a partir da primeira bancada integrada | Registro de testes do time com data, resultado e evidencia |
 
-## Métricas de Qualidade
+## Observacoes de coleta
 
-| Métrica | Descrição | Meta |
-|---------|-----------|------|
-| Taxa de defeitos por sprint | Bugs encontrados em review ou após merge | ≤ 1 bug crítico/sprint |
-| Cobertura de critérios de aceite | % de requisitos com critério de aceitação testável | 100% |
-| PRs rejeitados | PRs que precisaram de correção após review | ≤ 30% do total |
-
-## Métricas de Alinhamento com o PI
-
-| Métrica | Descrição | Meta |
-|---------|-----------|------|
-| Aderência aos marcos | Entregas concluídas dentro do prazo de cada marco | 100% dos marcos |
-| Sincronização inter-módulo | Integração com API/banco validada na semana esperada | Semana 9 (ponto crítico) |
-
-## Coleta e Revisão
-
-- Métricas coletadas a cada review de sprint (sexta-feira).
-- Dados registrados no próprio repositório ou em planilha compartilhada.
-- Revisão geral de tendências a cada marco do PI.
+- Enquanto o hardware ainda nao estiver integrado, a metrica M-04 fica registrada como **N/A**, e nao como zero.
+- As metas serao recalibradas apos as duas primeiras sprints, quando houver historico real do time.
+- Toda regressao registrada na M-03 deve apontar qual PR originou a mudanca e qual criterio de aceitacao falhou.
