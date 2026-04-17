@@ -35,6 +35,8 @@ Estas regras estão (ou serão) configuradas em **GitHub Settings → Branches �
 - **Bloquear force-push e deleção** de `main`.
 - **Conversations resolvidas** — nenhum comentário de review pendente na hora do merge.
 
+Evidência de aplicação dessas regras no GitHub: ver [`scm-evidence.md`](scm-evidence.md).
+
 ## 1.3 Convenção de Commits
 
 Seguimos [Conventional Commits 1.0.0 (PT-BR)](https://www.conventionalcommits.org/pt-br/v1.0.0/).
