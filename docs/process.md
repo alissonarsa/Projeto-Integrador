@@ -26,7 +26,7 @@ O time opera em sprints de 1 semana. Na segunda-feira ocorre o planning (15 a 20
 
 ## PR e Review
 
-- Branch por feature, fix ou docs (`feat/...`, `fix/...`, `docs/...`).
-- Autor nao faz merge do proprio PR.
-- Review em ate 48 h.
+As regras de branching, aprovação, proteção de main, convenção de commits e checklist de "pronto" para PR vivem no [Plano de SCM](scm-plan.md). O que fica aqui, ligado ao ciclo de sprint:
+
+- Review em até 48 h.
 - Mudancas que alterem payload, contrato de API, limiar de irrigacao ou estrutura de banco devem citar o artefato afetado no PR.

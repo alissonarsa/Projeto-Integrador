@@ -46,6 +46,7 @@ Nesta fase do PI, o repositorio registra principalmente a **documentacao de enge
 ## Documentação
 
 - [Processo](process.md)
+- [Plano de SCM](scm-plan.md)
 - [Métricas](metrics.md)
 - [Stakeholders](requirements/stakeholders.md)
 - [Backlog](requirements/backlog.md)

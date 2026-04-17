@@ -1,0 +1,19 @@
+# Placeholder de CI.
+# Serve como status check obrigatório na proteção da branch main
+# (ver docs/scm-plan.md seção 1.2). Substituir por lint e testes reais
+# quando firmware, API ou dashboard forem versionados no repo.
+
+name: ci
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ok
+        run: echo "ok"
