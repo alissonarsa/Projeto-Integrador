@@ -28,12 +28,8 @@ _(preencher após aplicar as regras no GitHub — formato: AAAA-MM-DD, por Leona
 
 _(anexar print de `Settings → Branches → Branch protection rules` mostrando as regras ativas em `main`)_
 
-<!-- Como anexar o print depois:
-     1. Tirar screenshot da tela de branch protection rules
-     2. Arrastar a imagem para dentro deste arquivo no editor do GitHub
-        (isso gera uma URL hospedada no próprio GitHub)
-     3. Commitar em branch docs/scm-evidence e abrir PR para development
--->
+![alt text](image.png)
+![alt text](image-1.png)
 
 ## Como reproduzir a verificação
 
