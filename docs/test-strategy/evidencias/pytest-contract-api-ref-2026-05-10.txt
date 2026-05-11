@@ -1,0 +1,15 @@
+Data da execucao: 2026-05-10
+Ambiente: API de referencia da aula em http://127.0.0.1:8000
+Comando: API_HORTA_BASE_URL=http://127.0.0.1:8000 pytest tests/contract -v
+
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-9.0.3, pluggy-1.6.0 -- /tmp/a16venv/bin/python
+cachedir: .pytest_cache
+rootdir: /tmp/pi_a16
+plugins: anyio-4.13.0
+collecting ... collected 2 items
+
+tests/contract/test_api_leituras_contract.py::test_post_leitura_honra_contrato PASSED [ 50%]
+tests/contract/test_api_leituras_contract.py::test_post_leitura_sem_timestamp_retorna_422_detail PASSED [100%]
+
+============================== 2 passed in 0.23s ===============================

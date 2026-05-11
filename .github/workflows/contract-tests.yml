@@ -1,0 +1,57 @@
+name: contract-tests
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest requests jsonschema fastapi==0.115.0 "uvicorn[standard]==0.30.6" pydantic==2.9.2
+
+      - name: Download reference API used in class
+        run: |
+          mkdir -p /tmp/api-horta-ref
+          curl -fsSL https://raw.githubusercontent.com/delucca-sandbox/api-horta-ref/main/main.py -o /tmp/api-horta-ref/main.py
+
+      - name: Start local reference API
+        run: |
+          uvicorn main:app --app-dir /tmp/api-horta-ref --host 127.0.0.1 --port 8000 > /tmp/api-horta-ref.log 2>&1 &
+          echo $! > /tmp/api-horta-ref.pid
+
+      - name: Wait for healthcheck
+        run: |
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:8000/health > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          echo "API de referencia nao respondeu a /health" >&2
+          cat /tmp/api-horta-ref.log || true
+          exit 1
+
+      - name: Run contract tests
+        env:
+          API_HORTA_BASE_URL: http://127.0.0.1:8000
+        run: pytest tests/contract -v
+
+      - name: Stop local reference API
+        if: always()
+        run: |
+          kill $(cat /tmp/api-horta-ref.pid) || true
