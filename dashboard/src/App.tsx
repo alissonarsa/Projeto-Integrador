@@ -36,6 +36,11 @@ export default function App() {
     logInfo('app.route.changed', { route }, 'app');
   }, [route]);
 
+  function navigate(key: AppRoute) {
+    window.location.hash = key;
+    setRoute(key);
+  }
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <header className="border-b border-slate-200 bg-white">
@@ -59,10 +64,7 @@ export default function App() {
                 <button
                   key={item.key}
                   type="button"
-                  onClick={() => {
-                    window.location.hash = item.key;
-                    setRoute(item.key);
-                  }}
+                  onClick={() => navigate(item.key)}
                   className={`rounded-full px-4 py-2 text-sm font-medium transition ${
                     active ? 'bg-emerald-700 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                   }`}
@@ -77,7 +79,7 @@ export default function App() {
 
       <main className="mx-auto max-w-7xl space-y-6 px-4 py-6 sm:px-6 lg:px-8">
         {route === 'principal' ? <Dashboard client={client} /> : null}
-        {route === 'alertas' ? <AlertsPage client={client} /> : null}
+        {route === 'alertas' ? <AlertsPage client={client} onNavigate={navigate} /> : null}
         {route === 'historico' ? <HistoryPage client={client} /> : null}
         {route === 'canteiros' ? <CanteirosPage client={client} /> : null}
         <ObservabilityPanel />

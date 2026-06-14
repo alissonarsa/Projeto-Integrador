@@ -7,9 +7,10 @@ import { usePageRenderMetric } from '../hooks/usePageRenderMetric';
 
 interface Props {
   client: DashboardClient;
+  onNavigate?: (route: 'historico') => void;
 }
 
-export function AlertsPage({ client }: Props) {
+export function AlertsPage({ client, onNavigate }: Props) {
   usePageRenderMetric('alertas');
   const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading');
   const [alertas, setAlertas] = useState<Alerta[]>([]);
@@ -119,7 +120,18 @@ export function AlertsPage({ client }: Props) {
                 </span>
               </div>
               <p className="mt-3 text-sm text-slate-700">{item.mensagem}</p>
-              <p className="mt-2 text-xs text-slate-500">Registrado em {formatarDataHora(item.timestamp)}</p>
+              <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                <p className="text-xs text-slate-500">Registrado em {formatarDataHora(item.timestamp)}</p>
+                {onNavigate ? (
+                  <button
+                    type="button"
+                    onClick={() => onNavigate('historico')}
+                    className="self-start rounded-lg border border-sky-300 px-3 py-1 text-xs font-semibold text-sky-700 hover:bg-sky-50"
+                  >
+                    Ver no histórico →
+                  </button>
+                ) : null}
+              </div>
             </article>
           ))}
         </section>
