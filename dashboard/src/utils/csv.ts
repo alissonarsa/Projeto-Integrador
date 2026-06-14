@@ -1,5 +1,10 @@
 export function escapeCsvValue(value: unknown): string {
-  const raw = String(value ?? '');
+  let raw = String(value ?? '');
+  // Neutraliza CSV/formula injection: Excel/Sheets executam células que começam
+  // com = + - @ (ou tab/CR). Prefixar com aspa simples força o conteúdo a texto.
+  if (/^[=+\-@\t\r]/.test(raw)) {
+    raw = `'${raw}`;
+  }
   const escaped = raw.replace(/"/g, '""');
   return /[",\n;]/.test(raw) ? `"${escaped}"` : escaped;
 }
