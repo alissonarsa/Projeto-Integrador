@@ -5,8 +5,8 @@
 | Campo | Valor |
 |:------|:------|
 | Equipe | Leonardo Rossetti, Alisson Silva e Luisa Felix |
-| Versão | v0.1 |
-| Data | 2026-05-10 |
+| Versão | v0.2 (atualizada na A1.8 — ver §1.9) |
+| Data | 2026-05-10 (v0.1) · 2026-06-14 (v0.2) |
 | RFC de referência | [`docs/rfc/rfc-001-arquitetura-mvp.md`](rfc/rfc-001-arquitetura-mvp.md) |
 | Marco associado | Marco 3 do PI |
 
@@ -48,6 +48,8 @@
 **System.** System test só faz sentido quando a pilha completa estiver minimamente rodando: firmware enviando dados, API gravando, banco persistindo e dashboard lendo. Como o repositório atual ainda não contém esses módulos integrados, a equipe decide **não usar system test como evidência principal da v0.1**. Ele entra como próximo passo do Marco 3 para smoke tests de fluxo ponta a ponta e ganha força total na v0.2/Marco 4.
 
 **Acceptance.** Acceptance test será usado para provar comportamento visível ao usuário, especialmente no dashboard: exibir fallback para sensor com falha, indicador de dados desatualizados e atualização correta da visão do canteiro. A equipe **não automatiza acceptance nesta v0.1** porque o frontend ainda não está implementado no repositório. Mesmo assim, o nível já aparece na matriz para registrar a decisão: quando a UI existir, esses riscos não serão rebaixados para unit por conveniência.
+
+> **Atualização A1.8 (v0.2):** o frontend agora está versionado em `dashboard/` e a aceitação do dashboard **passou a ser automatizada** com Vitest + Testing Library (jsdom). A âncora teste→risco está em **§1.9**. A promessa acima ("não rebaixar acceptance para unit") foi cumprida: os riscos de UI continuam classificados como acceptance, agora com teste real.
 
 ## 1.5 Técnica “moderna por contexto” escolhida — ADR
 
@@ -94,3 +96,44 @@ No estado atual do repositório, o **status check tecnicamente obrigatório no G
 - Criar smoke/system test do fluxo **sensor → API → banco → dashboard** para o Marco 4.
 - Automatizar acceptance test do dashboard para os cenários de dados nulos, dados desatualizados e estado de irrigação.
 - Incluir performance check simples para listagem de leituras e primeiros testes de segurança/erro a partir da aula de DevSecOps.
+
+## 1.9 Atualização A1.8 — âncora da suíte do dashboard (v0.2)
+
+Esta seção registra a evolução da matriz risco→teste para a A1.8. É a
+**atualização explícita** prometida na v0.1: quando o frontend existisse, os
+riscos de aceitação do dashboard ganhariam teste real.
+
+### Diff v0.1 → v0.2 (o que mudou e por quê)
+
+| Item | v0.1 (A1.6) | v0.2 (A1.8) |
+|---|---|---|
+| Frontend | não versionado | versionado em `dashboard/` (React 18 + Vite + TS) |
+| Aceitação do dashboard | declarada na matriz, **não automatizada** | **automatizada** com Vitest + Testing Library |
+| Linhas de risco do dashboard | só UC-03 (campo nulo, ordenação) | + WF-02 (histórico/borda), WF-03 (alertas), WF-04 (cadastro), observabilidade e fluxo crítico E2E |
+| Nível dominante da evidência | contrato (API de referência) | contrato **+** acceptance/E2E do dashboard mockado |
+| Runner | `pytest` (contrato) | `pytest` (contrato) **+** `vitest` (dashboard) |
+
+Nada da v0.1 foi removido: o teste de contrato `POST /leituras` continua válido
+e ancora as duas primeiras linhas da matriz (§1.7). A v0.2 **acrescenta** as
+linhas de UI abaixo.
+
+### Matriz risco→teste do dashboard (novas linhas, A1.8)
+
+| UC / req | Risco técnico concreto | Nível | Teste-âncora (arquivo → título) |
+|---|---|---|---|
+| UC-03 | Card quebrar com `umidade_solo` nula em vez de exibir fallback + alerta | acceptance | `dashboard/src/__tests__/CanteiroCard.test.tsx` → "exibe fallback e alerta quando umidade do solo é nula, sem quebrar" |
+| UC-03 (E3) | Dado desatualizado (>15 min) ser exibido como recente | acceptance | `CanteiroCard.test.tsx` → "marca dados desatualizados quando a última leitura passou de 15 min" |
+| UC-03 (E1) | API fora do ar na carga inicial não exibir erro + retry | acceptance | `Dashboard.test.tsx` → "mostra estado de erro quando a carga inicial da principal falha" |
+| UC-03 + relatório | Principal não mostrar status dos 4 canteiros nem o relatório agregado | acceptance | `Dashboard.test.tsx` → "renderiza cards dos 4 canteiros e relatório agregado na página principal" |
+| UC-03 | Camada de fetch isolada não devolver dados realistas / não falhar de forma controlada | integration | `mockClient.test.tsx` → "retorna canteiros e leituras realistas no modo padrão" / "lança erro quando configurado para falhar (simula API offline)" |
+| UC-02 / UC-03 (WF-03) | Alertas sem lógica concreta (mock visual) ou filtros travados | acceptance | `AlertsPage.test.tsx` → "renderiza alerta concreto de umidade crítica" |
+| UC-03 (WF-02) | Histórico não paginar / não exportar / não destacar leitura suspeita | acceptance | `HistoryPage.test.tsx` → "carrega histórico e expõe ação de exportação csv" |
+| FR-09 (WF-04) | Cadastro aceitar nome inválido (validação ausente) | acceptance | `CanteirosPage.test.tsx` → "valida formulário e cria novo canteiro" |
+| NFR observabilidade | Front não emitir logs estruturados / métricas mínimas | integration | `Observability.test.tsx` → "gera logs estruturados e métricas mínimas no front" |
+| UC-03 (fluxo crítico) | Usuário não conseguir ir de um alerta concreto até a investigação no histórico | E2E (acceptance) | `CriticalFlow.test.tsx` → "fluxo crítico: principal → alertas → vê alerta → vai para o histórico" + `AppNavigation.test.tsx` → "navega entre as 4 telas do dashboard completo" |
+
+### Evidência de execução
+
+- `docs/dashboard/evidencias/vitest-a1-8.txt` — saída completa de `vitest run` (9 arquivos / 12 testes, verdes).
+- `docs/releases/evidencias/vite-build-a1-8.txt` — `tsc --noEmit && vite build` sem erros.
+- Contrato (v0.1): `docs/test-strategy/evidencias/pytest-contract-api-ref-2026-05-10.txt`.
