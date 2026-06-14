@@ -1,0 +1,26 @@
+# Evidência — geração do dataset sintético (A1.8)
+# Data: 2026-06-14
+# Comando: python "2026-05-26--gerar-dados-sinteticos.py" --seed 42
+# Python: 3.13.14
+
+Dados gerados em: dados/dados-sinteticos/
+  Período: 2026-01-01 a 2026-06-29 (180 dias)
+  Leituras: 207.360 registros
+  Irrigações: 574 eventos
+  Arquivos: usuarios.csv, canteiros.csv, culturas.csv, sensores.csv,
+            leituras.csv, irrigacoes.csv, seed.sql
+
+Contagem de linhas (inclui cabeçalho):
+  dados-sinteticos/usuarios.csv      4
+  dados-sinteticos/canteiros.csv     5
+  dados-sinteticos/culturas.csv      5
+  dados-sinteticos/sensores.csv     13
+  dados-sinteticos/irrigacoes.csv  575
+  dados-sinteticos/leituras.csv 207361
+  dados-sinteticos/seed.sql        (INSERTs de cadastro + instruções)
+
+Tamanho total: ~11 MB
+
+Observação: a pasta dados-sinteticos/ é SAÍDA REGENERÁVEL (seed fixo 42) e
+está no .gitignore — não versionamos 11 MB de CSV. Para reproduzir, rode o
+comando acima a partir de dados/. Ver dados/como-usar-dados-sinteticos.md.

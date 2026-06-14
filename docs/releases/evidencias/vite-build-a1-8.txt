@@ -1,0 +1,14 @@
+# tsc --noEmit && vite build — A1.8 (2026-06-14)
+
+> horta-dashboard@0.2.0 build
+> tsc --noEmit && vite build
+
+vite v5.4.8 building for production...
+transforming...
+✓ 52 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.46 kB │ gzip:  0.32 kB
+dist/assets/index-kHbKSZNJ.css   12.79 kB │ gzip:  3.16 kB
+dist/assets/index-Bq9Lew69.js   174.56 kB │ gzip: 54.39 kB
+✓ built in 876ms

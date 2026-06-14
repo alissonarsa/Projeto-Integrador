@@ -5,9 +5,9 @@
 | Campo | Valor |
 |:------|:------|
 | Projeto | Horta Inteligente |
-| Status | Aceita para o MVP do Marco 2 e usada como base da A1.6 |
-| Versão | v0.2 |
-| Data | 2026-05-10 |
+| Status | Aceita para o MVP do Marco 2; base da A1.6; atualizada na A1.8 (ADR-004/005) |
+| Versão | v0.3 (A1.8) |
+| Data | 2026-05-10 (v0.2) · 2026-06-14 (v0.3) |
 | Autores | Leonardo Rossetti, Alisson Silva, Luisa Felix |
 | Repositório | `Projeto-Integrador` |
 | Artefatos-base | [`../requirementents/srs.md`](../requirementents/srs.md), [`../requirementents/use-cases.md`](../requirementents/use-cases.md), [`../requirementents/backlog.md`](../requirementents/backlog.md) |
@@ -206,7 +206,43 @@ As fronteiras arquiteturais que concentram mais risco neste MVP são:
 
 ---
 
+### ADR-004 — Visualização com SVG/sparkline próprio em vez de Chart.js (A1.8)
+
+**Contexto.** A §5 pina **Chart.js 4.4.3** como biblioteca de gráficos. Ao implementar o dashboard mockado (A1.7/A1.8), os gráficos necessários eram séries curtas (temperatura, umidade, luminosidade nas últimas 24 h) e KPIs — não exigiam eixos ricos, tooltips nem interação avançada.
+
+**Decisão.** Para a release mockada, **não adotar Chart.js**. Renderizar as séries com um componente `Sparkline` próprio em **SVG** (`dashboard/src/components/Sparkline.tsx` + `utils/sparkline.ts`).
+
+**Alternativas consideradas.**
+- **Manter Chart.js conforme a RFC:** adiciona ~70 KB + dependência transitiva e amplia a superfície de `npm audit` para um ganho visual que a release mockada não precisa.
+- **Recharts/D3:** mesma objeção, com curva maior.
+
+**Consequências.** Ganhamos zero dependências de runtime além de React/React-DOM (`npm audit` = 0 vulnerabilidades), bundle menor e código de gráfico legível pelo time. Pagamos o custo de não ter, por ora, gráficos ricos (zoom, tooltip, múltiplas séries sobrepostas).
+
+**Quando reavaliar.** No Marco 4, com dados reais e necessidade de gráficos interativos (detalhe do canteiro com 24 h por sensor), **reintroduzir Chart.js** conforme a §5. Esta decisão é uma **divergência consciente e temporária** da stack pinada, registrada aqui para manter A1.4 ↔ A1.8 coerentes.
+
+---
+
+### ADR-005 — Navegação por hash em vez de React Router (A1.8)
+
+**Contexto.** O dashboard tem 4 telas e estado local simples. Um roteador completo adicionaria dependência e conceitos (loaders, nested routes) acima do necessário.
+
+**Decisão.** Usar **navegação baseada em `window.location.hash`** (`#principal`, `#alertas`, `#historico`, `#canteiros`) em `App.tsx`, sem React Router e sem Redux.
+
+**Consequências.** Menos dependências e setup trivial; em troca, sem code-splitting por rota nem histórico avançado. Suficiente para o escopo mockado. Reavaliar se o número de telas/fluxos crescer no Marco 4.
+
+---
+
 ## 8. Telas / Wireframes (textuais)
+
+> **Reconciliação A1.4 ↔ A1.8 (lida com a coerência do portfólio).** Os
+> wireframes abaixo são da RFC original. Na implementação da A1.8 o rótulo
+> **WF-02 foi rescopado**: de "Detalhe do Canteiro" (gráficos 24 h por sensor)
+> para **"Histórico de leituras"** (tabela paginada + filtro + export CSV +
+> destaque de bordas), por entregar mais valor auditável na release mockada. O
+> **detalhe do canteiro com gráficos de 24 h** (e o fluxo UC-03/A2 de clicar no
+> card → detalhe) fica registrado como **dívida técnica para o Marco 4**, quando
+> os dados reais e o Chart.js (ADR-004) justificarem a tela. Os demais rótulos
+> (WF-01, WF-03, WF-04) seguem como na RFC.
 
 > Como o repositório atual não traz assets gráficos da A1.4, os wireframes abaixo foram reconstruídos em formato textual para manter a RFC completa e rastreável. Eles já linkam os UCs e podem ser substituídos por PNG/Figma depois, sem quebrar a estrutura.
 

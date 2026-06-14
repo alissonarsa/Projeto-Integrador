@@ -7,3 +7,6 @@ __pycache__/
 
 # Specs de brainstorming (design interno, nunca commitado)
 docs/superpowers/
+
+# Dataset sintético gerado (regenerável com seed fixo — ver dados/como-usar-dados-sinteticos.md)
+dados/dados-sinteticos/

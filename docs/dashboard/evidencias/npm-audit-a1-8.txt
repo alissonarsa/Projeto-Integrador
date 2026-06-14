@@ -1,0 +1,8 @@
+# Evidência SCA — npm audit (A1.8 / v0.2.0-dashboard-rc)
+# Gerado em: 2026-06-14 (release A1.8)
+# Comando: npm audit --omit=dev --audit-level=high
+# Node: v24.16.0 | npm: 11.13.0
+----------------------------------------------------------------
+found 0 vulnerabilities
+----------------------------------------------------------------
+Exit status do comando acima: 0
