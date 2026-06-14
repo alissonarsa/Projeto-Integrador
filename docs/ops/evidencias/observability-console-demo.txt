@@ -1,0 +1,120 @@
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90m/mnt/data/a1_8_work/dashboard[39m
+
+[90mstdout[2m | src/__tests__/Observability.test.tsx[2m > [22m[2mgera logs estruturados e métricas mínimas no front
+[22m[39m[horta-observability] {"ts":"2026-06-12T19:32:22.357Z","level":"info","event":"page.view","meta":{},"page":"principal"}
+[horta-observability] {"ts":"2026-06-12T19:32:22.359Z","level":"info","event":"fetch.start","meta":{"section":"canteiros"},"requestId":"canteiros-y2t156ve"}
+[horta-observability] {"ts":"2026-06-12T19:32:22.359Z","level":"info","event":"fetch.start","meta":{"section":"dashboard"},"requestId":"dashboard-98kcqefz"}
+[horta-observability] {"ts":"2026-06-12T19:32:22.359Z","level":"info","event":"fetch.start","meta":{"section":"dashboard"},"requestId":"dashboard-eks1g7al"}
+[horta-observability] {"ts":"2026-06-12T19:32:22.360Z","level":"info","event":"app.route.changed","meta":{"route":"principal"},"page":"app"}
+
+[90mstdout[2m | src/__tests__/Observability.test.tsx[2m > [22m[2mgera logs estruturados e métricas mínimas no front
+[22m[39m[horta-observability] {"ts":"2026-06-12T19:32:22.377Z","level":"info","event":"page.render","meta":{"durationMs":20},"page":"principal"}
+
+[90mstdout[2m | src/__tests__/Observability.test.tsx[2m > [22m[2mgera logs estruturados e métricas mínimas no front
+[22m[39m[horta-observability] {"ts":"2026-06-12T19:32:22.539Z","level":"info","event":"fetch.success","meta":{"section":"canteiros","size":4},"requestId":"canteiros-y2t156ve"}
+[horta-observability] {"ts":"2026-06-12T19:32:22.539Z","level":"info","event":"fetch.success","meta":{"section":"dashboard","size":4},"requestId":"dashboard-98kcqefz"}
+[horta-observability] {"ts":"2026-06-12T19:32:22.542Z","level":"info","event":"fetch.success","meta":{"section":"dashboard","size":4},"requestId":"dashboard-eks1g7al"}
+
+[90mstdout[2m | src/__tests__/Observability.test.tsx[2m > [22m[2mgera logs estruturados e métricas mínimas no front
+[22m[39m[observability-evidence] {
+  "logs": [
+    {
+      "ts": "2026-06-12T19:32:22.357Z",
+      "level": "info",
+      "event": "page.view",
+      "meta": {},
+      "page": "principal"
+    },
+    {
+      "ts": "2026-06-12T19:32:22.359Z",
+      "level": "info",
+      "event": "fetch.start",
+      "meta": {
+        "section": "canteiros"
+      },
+      "requestId": "canteiros-y2t156ve"
+    },
+    {
+      "ts": "2026-06-12T19:32:22.359Z",
+      "level": "info",
+      "event": "fetch.start",
+      "meta": {
+        "section": "dashboard"
+      },
+      "requestId": "dashboard-98kcqefz"
+    },
+    {
+      "ts": "2026-06-12T19:32:22.359Z",
+      "level": "info",
+      "event": "fetch.start",
+      "meta": {
+        "section": "dashboard"
+      },
+      "requestId": "dashboard-eks1g7al"
+    },
+    {
+      "ts": "2026-06-12T19:32:22.360Z",
+      "level": "info",
+      "event": "app.route.changed",
+      "meta": {
+        "route": "principal"
+      },
+      "page": "app"
+    },
+    {
+      "ts": "2026-06-12T19:32:22.377Z",
+      "level": "info",
+      "event": "page.render",
+      "meta": {
+        "durationMs": 20
+      },
+      "page": "principal"
+    },
+    {
+      "ts": "2026-06-12T19:32:22.539Z",
+      "level": "info",
+      "event": "fetch.success",
+      "meta": {
+        "section": "canteiros",
+        "size": 4
+      },
+      "requestId": "canteiros-y2t156ve"
+    },
+    {
+      "ts": "2026-06-12T19:32:22.539Z",
+      "level": "info",
+      "event": "fetch.success",
+      "meta": {
+        "section": "dashboard",
+        "size": 4
+      },
+      "requestId": "dashboard-98kcqefz"
+    },
+    {
+      "ts": "2026-06-12T19:32:22.542Z",
+      "level": "info",
+      "event": "fetch.success",
+      "meta": {
+        "section": "dashboard",
+        "size": 4
+      },
+      "requestId": "dashboard-eks1g7al"
+    }
+  ],
+  "metrics": {
+    "fetchErrors": 0,
+    "pageRenderMs": {
+      "principal": 20
+    },
+    "alertsRendered": 0
+  }
+}
+
+ [32m✓[39m src/__tests__/Observability.test.tsx [2m([22m[2m1 test[22m[2m)[22m[90m 238[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m   Start at [22m 19:32:11
+[2m   Duration [22m 10.83s[2m (transform 227ms, setup 95ms, collect 313ms, tests 238ms, environment 589ms, prepare 2.32s)[22m
+

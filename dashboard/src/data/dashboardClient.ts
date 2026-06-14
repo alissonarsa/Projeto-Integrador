@@ -1,10 +1,11 @@
 import type { DashboardClient } from './types';
+import { HttpDashboardClient } from './httpDashboardClient';
 import { MockDashboardClient } from './mockDashboardClient';
 
-// Ponto único de troca mock -> API real.
-// Migração futura: ler import.meta.env.VITE_API_BASE_URL; se definido,
-// retornar `new HttpDashboardClient(baseUrl)` (mesma interface). Nenhum
-// componente ou hook muda — só esta função.
 export function getDashboardClient(): DashboardClient {
+  const baseUrl = import.meta.env.VITE_API_BASE_URL;
+  if (baseUrl) {
+    return new HttpDashboardClient(baseUrl);
+  }
   return new MockDashboardClient();
 }
