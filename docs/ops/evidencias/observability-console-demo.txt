@@ -1,60 +1,63 @@
+# Evidência de observabilidade — logs/métricas do front (A1.8)
+# Gerado nesta máquina em 2026-06-14 via: npx vitest run src/__tests__/Observability.test.tsx
+----------------------------------------------------------------
 
-[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90m/mnt/data/a1_8_work/dashboard[39m
+ RUN  v2.1.9 C:/Users/leofr/Documents/GitHub/Projeto-Integrador/dashboard
 
-[90mstdout[2m | src/__tests__/Observability.test.tsx[2m > [22m[2mgera logs estruturados e métricas mínimas no front
-[22m[39m[horta-observability] {"ts":"2026-06-12T19:32:22.357Z","level":"info","event":"page.view","meta":{},"page":"principal"}
-[horta-observability] {"ts":"2026-06-12T19:32:22.359Z","level":"info","event":"fetch.start","meta":{"section":"canteiros"},"requestId":"canteiros-y2t156ve"}
-[horta-observability] {"ts":"2026-06-12T19:32:22.359Z","level":"info","event":"fetch.start","meta":{"section":"dashboard"},"requestId":"dashboard-98kcqefz"}
-[horta-observability] {"ts":"2026-06-12T19:32:22.359Z","level":"info","event":"fetch.start","meta":{"section":"dashboard"},"requestId":"dashboard-eks1g7al"}
-[horta-observability] {"ts":"2026-06-12T19:32:22.360Z","level":"info","event":"app.route.changed","meta":{"route":"principal"},"page":"app"}
+stdout | src/__tests__/Observability.test.tsx > gera logs estruturados e métricas mínimas no front
+[horta-observability] {"ts":"2026-06-14T21:29:27.283Z","level":"info","event":"page.view","meta":{},"page":"principal"}
+[horta-observability] {"ts":"2026-06-14T21:29:27.284Z","level":"info","event":"fetch.start","meta":{"section":"canteiros"},"requestId":"canteiros-3bes2lbh"}
+[horta-observability] {"ts":"2026-06-14T21:29:27.284Z","level":"info","event":"fetch.start","meta":{"section":"dashboard"},"requestId":"dashboard-uui2ms60"}
+[horta-observability] {"ts":"2026-06-14T21:29:27.284Z","level":"info","event":"fetch.start","meta":{"section":"dashboard"},"requestId":"dashboard-9qvv07u8"}
+[horta-observability] {"ts":"2026-06-14T21:29:27.285Z","level":"info","event":"app.route.changed","meta":{"route":"principal"},"page":"app"}
 
-[90mstdout[2m | src/__tests__/Observability.test.tsx[2m > [22m[2mgera logs estruturados e métricas mínimas no front
-[22m[39m[horta-observability] {"ts":"2026-06-12T19:32:22.377Z","level":"info","event":"page.render","meta":{"durationMs":20},"page":"principal"}
+stdout | src/__tests__/Observability.test.tsx > gera logs estruturados e métricas mínimas no front
+[horta-observability] {"ts":"2026-06-14T21:29:27.307Z","level":"info","event":"page.render","meta":{"durationMs":24},"page":"principal"}
 
-[90mstdout[2m | src/__tests__/Observability.test.tsx[2m > [22m[2mgera logs estruturados e métricas mínimas no front
-[22m[39m[horta-observability] {"ts":"2026-06-12T19:32:22.539Z","level":"info","event":"fetch.success","meta":{"section":"canteiros","size":4},"requestId":"canteiros-y2t156ve"}
-[horta-observability] {"ts":"2026-06-12T19:32:22.539Z","level":"info","event":"fetch.success","meta":{"section":"dashboard","size":4},"requestId":"dashboard-98kcqefz"}
-[horta-observability] {"ts":"2026-06-12T19:32:22.542Z","level":"info","event":"fetch.success","meta":{"section":"dashboard","size":4},"requestId":"dashboard-eks1g7al"}
+stdout | src/__tests__/Observability.test.tsx > gera logs estruturados e métricas mínimas no front
+[horta-observability] {"ts":"2026-06-14T21:29:27.465Z","level":"info","event":"fetch.success","meta":{"section":"canteiros","size":4},"requestId":"canteiros-3bes2lbh"}
+[horta-observability] {"ts":"2026-06-14T21:29:27.466Z","level":"info","event":"fetch.success","meta":{"section":"dashboard","size":4},"requestId":"dashboard-uui2ms60"}
+[horta-observability] {"ts":"2026-06-14T21:29:27.466Z","level":"info","event":"fetch.success","meta":{"section":"dashboard","size":4},"requestId":"dashboard-9qvv07u8"}
 
-[90mstdout[2m | src/__tests__/Observability.test.tsx[2m > [22m[2mgera logs estruturados e métricas mínimas no front
-[22m[39m[observability-evidence] {
+stdout | src/__tests__/Observability.test.tsx > gera logs estruturados e métricas mínimas no front
+[observability-evidence] {
   "logs": [
     {
-      "ts": "2026-06-12T19:32:22.357Z",
+      "ts": "2026-06-14T21:29:27.283Z",
       "level": "info",
       "event": "page.view",
       "meta": {},
       "page": "principal"
     },
     {
-      "ts": "2026-06-12T19:32:22.359Z",
+      "ts": "2026-06-14T21:29:27.284Z",
       "level": "info",
       "event": "fetch.start",
       "meta": {
         "section": "canteiros"
       },
-      "requestId": "canteiros-y2t156ve"
+      "requestId": "canteiros-3bes2lbh"
     },
     {
-      "ts": "2026-06-12T19:32:22.359Z",
+      "ts": "2026-06-14T21:29:27.284Z",
       "level": "info",
       "event": "fetch.start",
       "meta": {
         "section": "dashboard"
       },
-      "requestId": "dashboard-98kcqefz"
+      "requestId": "dashboard-uui2ms60"
     },
     {
-      "ts": "2026-06-12T19:32:22.359Z",
+      "ts": "2026-06-14T21:29:27.284Z",
       "level": "info",
       "event": "fetch.start",
       "meta": {
         "section": "dashboard"
       },
-      "requestId": "dashboard-eks1g7al"
+      "requestId": "dashboard-9qvv07u8"
     },
     {
-      "ts": "2026-06-12T19:32:22.360Z",
+      "ts": "2026-06-14T21:29:27.285Z",
       "level": "info",
       "event": "app.route.changed",
       "meta": {
@@ -63,58 +66,58 @@
       "page": "app"
     },
     {
-      "ts": "2026-06-12T19:32:22.377Z",
+      "ts": "2026-06-14T21:29:27.307Z",
       "level": "info",
       "event": "page.render",
       "meta": {
-        "durationMs": 20
+        "durationMs": 24
       },
       "page": "principal"
     },
     {
-      "ts": "2026-06-12T19:32:22.539Z",
+      "ts": "2026-06-14T21:29:27.465Z",
       "level": "info",
       "event": "fetch.success",
       "meta": {
         "section": "canteiros",
         "size": 4
       },
-      "requestId": "canteiros-y2t156ve"
+      "requestId": "canteiros-3bes2lbh"
     },
     {
-      "ts": "2026-06-12T19:32:22.539Z",
+      "ts": "2026-06-14T21:29:27.466Z",
       "level": "info",
       "event": "fetch.success",
       "meta": {
         "section": "dashboard",
         "size": 4
       },
-      "requestId": "dashboard-98kcqefz"
+      "requestId": "dashboard-uui2ms60"
     },
     {
-      "ts": "2026-06-12T19:32:22.542Z",
+      "ts": "2026-06-14T21:29:27.466Z",
       "level": "info",
       "event": "fetch.success",
       "meta": {
         "section": "dashboard",
         "size": 4
       },
-      "requestId": "dashboard-eks1g7al"
+      "requestId": "dashboard-9qvv07u8"
     }
   ],
   "metrics": {
     "fetchErrors": 0,
     "pageRenderMs": {
-      "principal": 20
+      "principal": 24
     },
     "alertsRendered": 0
   }
 }
 
- [32m✓[39m src/__tests__/Observability.test.tsx [2m([22m[2m1 test[22m[2m)[22m[90m 238[2mms[22m[39m
+ ✓ src/__tests__/Observability.test.tsx (1 test) 228ms
 
-[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
-[2m      Tests [22m [1m[32m1 passed[39m[22m[90m (1)[39m
-[2m   Start at [22m 19:32:11
-[2m   Duration [22m 10.83s[2m (transform 227ms, setup 95ms, collect 313ms, tests 238ms, environment 589ms, prepare 2.32s)[22m
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  18:29:26
+   Duration  1.42s (transform 121ms, setup 76ms, collect 230ms, tests 228ms, environment 413ms, prepare 277ms)
 
