@@ -1,0 +1,123 @@
+# Evidência de observabilidade — logs/métricas do front (A1.8)
+# Gerado nesta máquina em 2026-06-14 via: npx vitest run src/__tests__/Observability.test.tsx
+----------------------------------------------------------------
+
+ RUN  v2.1.9 C:/Users/leofr/Documents/GitHub/Projeto-Integrador/dashboard
+
+stdout | src/__tests__/Observability.test.tsx > gera logs estruturados e métricas mínimas no front
+[horta-observability] {"ts":"2026-06-14T21:29:27.283Z","level":"info","event":"page.view","meta":{},"page":"principal"}
+[horta-observability] {"ts":"2026-06-14T21:29:27.284Z","level":"info","event":"fetch.start","meta":{"section":"canteiros"},"requestId":"canteiros-3bes2lbh"}
+[horta-observability] {"ts":"2026-06-14T21:29:27.284Z","level":"info","event":"fetch.start","meta":{"section":"dashboard"},"requestId":"dashboard-uui2ms60"}
+[horta-observability] {"ts":"2026-06-14T21:29:27.284Z","level":"info","event":"fetch.start","meta":{"section":"dashboard"},"requestId":"dashboard-9qvv07u8"}
+[horta-observability] {"ts":"2026-06-14T21:29:27.285Z","level":"info","event":"app.route.changed","meta":{"route":"principal"},"page":"app"}
+
+stdout | src/__tests__/Observability.test.tsx > gera logs estruturados e métricas mínimas no front
+[horta-observability] {"ts":"2026-06-14T21:29:27.307Z","level":"info","event":"page.render","meta":{"durationMs":24},"page":"principal"}
+
+stdout | src/__tests__/Observability.test.tsx > gera logs estruturados e métricas mínimas no front
+[horta-observability] {"ts":"2026-06-14T21:29:27.465Z","level":"info","event":"fetch.success","meta":{"section":"canteiros","size":4},"requestId":"canteiros-3bes2lbh"}
+[horta-observability] {"ts":"2026-06-14T21:29:27.466Z","level":"info","event":"fetch.success","meta":{"section":"dashboard","size":4},"requestId":"dashboard-uui2ms60"}
+[horta-observability] {"ts":"2026-06-14T21:29:27.466Z","level":"info","event":"fetch.success","meta":{"section":"dashboard","size":4},"requestId":"dashboard-9qvv07u8"}
+
+stdout | src/__tests__/Observability.test.tsx > gera logs estruturados e métricas mínimas no front
+[observability-evidence] {
+  "logs": [
+    {
+      "ts": "2026-06-14T21:29:27.283Z",
+      "level": "info",
+      "event": "page.view",
+      "meta": {},
+      "page": "principal"
+    },
+    {
+      "ts": "2026-06-14T21:29:27.284Z",
+      "level": "info",
+      "event": "fetch.start",
+      "meta": {
+        "section": "canteiros"
+      },
+      "requestId": "canteiros-3bes2lbh"
+    },
+    {
+      "ts": "2026-06-14T21:29:27.284Z",
+      "level": "info",
+      "event": "fetch.start",
+      "meta": {
+        "section": "dashboard"
+      },
+      "requestId": "dashboard-uui2ms60"
+    },
+    {
+      "ts": "2026-06-14T21:29:27.284Z",
+      "level": "info",
+      "event": "fetch.start",
+      "meta": {
+        "section": "dashboard"
+      },
+      "requestId": "dashboard-9qvv07u8"
+    },
+    {
+      "ts": "2026-06-14T21:29:27.285Z",
+      "level": "info",
+      "event": "app.route.changed",
+      "meta": {
+        "route": "principal"
+      },
+      "page": "app"
+    },
+    {
+      "ts": "2026-06-14T21:29:27.307Z",
+      "level": "info",
+      "event": "page.render",
+      "meta": {
+        "durationMs": 24
+      },
+      "page": "principal"
+    },
+    {
+      "ts": "2026-06-14T21:29:27.465Z",
+      "level": "info",
+      "event": "fetch.success",
+      "meta": {
+        "section": "canteiros",
+        "size": 4
+      },
+      "requestId": "canteiros-3bes2lbh"
+    },
+    {
+      "ts": "2026-06-14T21:29:27.466Z",
+      "level": "info",
+      "event": "fetch.success",
+      "meta": {
+        "section": "dashboard",
+        "size": 4
+      },
+      "requestId": "dashboard-uui2ms60"
+    },
+    {
+      "ts": "2026-06-14T21:29:27.466Z",
+      "level": "info",
+      "event": "fetch.success",
+      "meta": {
+        "section": "dashboard",
+        "size": 4
+      },
+      "requestId": "dashboard-9qvv07u8"
+    }
+  ],
+  "metrics": {
+    "fetchErrors": 0,
+    "pageRenderMs": {
+      "principal": 24
+    },
+    "alertsRendered": 0
+  }
+}
+
+ ✓ src/__tests__/Observability.test.tsx (1 test) 228ms
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  18:29:26
+   Duration  1.42s (transform 121ms, setup 76ms, collect 230ms, tests 228ms, environment 413ms, prepare 277ms)
+

@@ -1,0 +1,298 @@
+
+ RUN  v2.1.9 C:/Users/leofr/Documents/GitHub/Projeto-Integrador/dashboard
+
+ ✓ src/__tests__/csv.test.ts (3 tests) 2ms
+stdout | src/__tests__/mockClient.test.tsx > retorna canteiros e leituras realistas no modo padrão
+[horta-observability] {"ts":"2026-06-14T21:29:23.823Z","level":"info","event":"fetch.start","meta":{"section":"canteiros"},"requestId":"canteiros-wh1aiofy"}
+
+stdout | src/__tests__/mockClient.test.tsx > retorna canteiros e leituras realistas no modo padrão
+[horta-observability] {"ts":"2026-06-14T21:29:23.830Z","level":"info","event":"fetch.success","meta":{"section":"canteiros","size":4},"requestId":"canteiros-wh1aiofy"}
+[horta-observability] {"ts":"2026-06-14T21:29:23.830Z","level":"info","event":"fetch.start","meta":{"section":"dashboard"},"requestId":"dashboard-qshncfhk"}
+
+stdout | src/__tests__/mockClient.test.tsx > retorna canteiros e leituras realistas no modo padrão
+[horta-observability] {"ts":"2026-06-14T21:29:23.840Z","level":"info","event":"fetch.success","meta":{"section":"dashboard","size":4},"requestId":"dashboard-qshncfhk"}
+
+stdout | src/__tests__/mockClient.test.tsx > lança erro quando configurado para falhar (simula API offline)
+[horta-observability] {"ts":"2026-06-14T21:29:23.842Z","level":"info","event":"fetch.start","meta":{"section":"canteiros"},"requestId":"canteiros-cdbljvql"}
+
+stderr | src/__tests__/mockClient.test.tsx > lança erro quando configurado para falhar (simula API offline)
+[horta-observability] {"ts":"2026-06-14T21:29:23.851Z","level":"error","event":"fetch.error","meta":{"section":"canteiros","reason":"Falha simulada"},"requestId":"canteiros-cdbljvql"}
+
+ ✓ src/__tests__/mockClient.test.tsx (2 tests) 31ms
+ ✓ src/__tests__/CanteiroCard.test.tsx (2 tests) 35ms
+stdout | src/__tests__/AlertsPage.test.tsx > renderiza alerta concreto de umidade crítica
+[horta-observability] {"ts":"2026-06-14T21:29:24.023Z","level":"info","event":"page.view","meta":{},"page":"alertas"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.024Z","level":"info","event":"fetch.start","meta":{"section":"alertas"},"requestId":"alertas-iwjlg95i"}
+
+stdout | src/__tests__/CanteirosPage.test.tsx > valida formulário e cria novo canteiro
+[horta-observability] {"ts":"2026-06-14T21:29:24.029Z","level":"info","event":"page.view","meta":{},"page":"canteiros"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.030Z","level":"info","event":"fetch.start","meta":{"section":"canteiros"},"requestId":"canteiros-n1s3ifc3"}
+
+stdout | src/__tests__/HistoryPage.test.tsx > carrega histórico e expõe ação de exportação csv
+[horta-observability] {"ts":"2026-06-14T21:29:24.029Z","level":"info","event":"page.view","meta":{},"page":"historico"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.030Z","level":"info","event":"fetch.start","meta":{"section":"historico"},"requestId":"historico-cpaq6u7f"}
+
+stdout | src/__tests__/CanteirosPage.test.tsx > valida formulário e cria novo canteiro
+[horta-observability] {"ts":"2026-06-14T21:29:24.041Z","level":"info","event":"fetch.success","meta":{"section":"canteiros","size":4},"requestId":"canteiros-n1s3ifc3"}
+
+stdout | src/__tests__/AlertsPage.test.tsx > renderiza alerta concreto de umidade crítica
+[horta-observability] {"ts":"2026-06-14T21:29:24.034Z","level":"info","event":"fetch.success","meta":{"section":"alertas","size":4},"requestId":"alertas-iwjlg95i"}
+
+stdout | src/__tests__/HistoryPage.test.tsx > carrega histórico e expõe ação de exportação csv
+[horta-observability] {"ts":"2026-06-14T21:29:24.042Z","level":"info","event":"fetch.success","meta":{"section":"historico","size":48},"requestId":"historico-cpaq6u7f"}
+
+stdout | src/__tests__/AlertsPage.test.tsx > renderiza alerta concreto de umidade crítica
+[horta-observability] {"ts":"2026-06-14T21:29:24.105Z","level":"info","event":"page.render","meta":{"durationMs":81},"page":"alertas"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.105Z","level":"info","event":"alerts.rendered","meta":{"count":4},"page":"alertas"}
+
+stdout | src/__tests__/CriticalFlow.test.tsx > fluxo crítico: principal → alertas → vê alerta → vai para o histórico
+[horta-observability] {"ts":"2026-06-14T21:29:24.103Z","level":"info","event":"page.view","meta":{},"page":"principal"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.104Z","level":"info","event":"fetch.start","meta":{"section":"canteiros"},"requestId":"canteiros-2jmw7vpe"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.104Z","level":"info","event":"fetch.start","meta":{"section":"dashboard"},"requestId":"dashboard-zyq583te"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.104Z","level":"info","event":"fetch.start","meta":{"section":"dashboard"},"requestId":"dashboard-mgep5ujz"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.106Z","level":"info","event":"app.route.changed","meta":{"route":"principal"},"page":"app"}
+
+stdout | src/__tests__/Observability.test.tsx > gera logs estruturados e métricas mínimas no front
+[horta-observability] {"ts":"2026-06-14T21:29:24.106Z","level":"info","event":"page.view","meta":{},"page":"principal"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.107Z","level":"info","event":"fetch.start","meta":{"section":"canteiros"},"requestId":"canteiros-e5ckctfn"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.108Z","level":"info","event":"fetch.start","meta":{"section":"dashboard"},"requestId":"dashboard-c6xi8fjo"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.108Z","level":"info","event":"fetch.start","meta":{"section":"dashboard"},"requestId":"dashboard-0boqpyz2"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.109Z","level":"info","event":"app.route.changed","meta":{"route":"principal"},"page":"app"}
+
+stdout | src/__tests__/CriticalFlow.test.tsx > fluxo crítico: principal → alertas → vê alerta → vai para o histórico
+[horta-observability] {"ts":"2026-06-14T21:29:24.119Z","level":"info","event":"page.render","meta":{"durationMs":17},"page":"principal"}
+
+stdout | src/__tests__/CanteirosPage.test.tsx > valida formulário e cria novo canteiro
+[horta-observability] {"ts":"2026-06-14T21:29:24.054Z","level":"info","event":"page.render","meta":{"durationMs":24},"page":"canteiros"}
+
+ ✓ src/__tests__/AlertsPage.test.tsx (1 test) 112ms
+stdout | src/__tests__/AppNavigation.test.tsx > navega entre as 4 telas do dashboard completo
+[horta-observability] {"ts":"2026-06-14T21:29:24.110Z","level":"info","event":"page.view","meta":{},"page":"principal"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.111Z","level":"info","event":"fetch.start","meta":{"section":"canteiros"},"requestId":"canteiros-b0h54wxa"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.111Z","level":"info","event":"fetch.start","meta":{"section":"dashboard"},"requestId":"dashboard-nuvbgl6o"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.112Z","level":"info","event":"fetch.start","meta":{"section":"dashboard"},"requestId":"dashboard-quuoy1ai"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.113Z","level":"info","event":"app.route.changed","meta":{"route":"principal"},"page":"app"}
+
+stdout | src/__tests__/Observability.test.tsx > gera logs estruturados e métricas mínimas no front
+[horta-observability] {"ts":"2026-06-14T21:29:24.125Z","level":"info","event":"page.render","meta":{"durationMs":19},"page":"principal"}
+
+stdout | src/__tests__/AppNavigation.test.tsx > navega entre as 4 telas do dashboard completo
+[horta-observability] {"ts":"2026-06-14T21:29:24.128Z","level":"info","event":"page.render","meta":{"durationMs":19},"page":"principal"}
+
+stdout | src/__tests__/Dashboard.test.tsx > renderiza cards dos 4 canteiros e relatório agregado na página principal
+[horta-observability] {"ts":"2026-06-14T21:29:24.077Z","level":"info","event":"page.view","meta":{},"page":"principal"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.078Z","level":"info","event":"fetch.start","meta":{"section":"canteiros"},"requestId":"canteiros-8wfzchmn"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.078Z","level":"info","event":"fetch.start","meta":{"section":"dashboard"},"requestId":"dashboard-7b0lyodg"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.079Z","level":"info","event":"fetch.start","meta":{"section":"dashboard"},"requestId":"dashboard-8nplviwu"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.087Z","level":"info","event":"fetch.success","meta":{"section":"canteiros","size":4},"requestId":"canteiros-8wfzchmn"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.087Z","level":"info","event":"fetch.success","meta":{"section":"dashboard","size":4},"requestId":"dashboard-7b0lyodg"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.087Z","level":"info","event":"fetch.success","meta":{"section":"dashboard","size":4},"requestId":"dashboard-8nplviwu"}
+
+stdout | src/__tests__/Dashboard.test.tsx > renderiza cards dos 4 canteiros e relatório agregado na página principal
+[horta-observability] {"ts":"2026-06-14T21:29:24.132Z","level":"info","event":"page.render","meta":{"durationMs":55},"page":"principal"}
+
+stdout | src/__tests__/Dashboard.test.tsx > mostra estado de erro quando a carga inicial da principal falha
+[horta-observability] {"ts":"2026-06-14T21:29:24.155Z","level":"info","event":"page.view","meta":{},"page":"principal"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.155Z","level":"info","event":"fetch.start","meta":{"section":"canteiros"},"requestId":"canteiros-r2uojj2l"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.155Z","level":"info","event":"fetch.start","meta":{"section":"dashboard"},"requestId":"dashboard-xios9r95"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.155Z","level":"info","event":"fetch.start","meta":{"section":"dashboard"},"requestId":"dashboard-lqyeeqgo"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.156Z","level":"info","event":"fetch.success","meta":{"section":"canteiros","size":4},"requestId":"canteiros-r2uojj2l"}
+
+stderr | src/__tests__/Dashboard.test.tsx > mostra estado de erro quando a carga inicial da principal falha
+[horta-observability] {"ts":"2026-06-14T21:29:24.157Z","level":"error","event":"fetch.error","meta":{"section":"dashboard","reason":"Falha simulada"},"requestId":"dashboard-xios9r95"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.157Z","level":"error","event":"fetch.error","meta":{"section":"dashboard","reason":"Falha simulada"},"requestId":"dashboard-lqyeeqgo"}
+
+stdout | src/__tests__/HistoryPage.test.tsx > carrega histórico e expõe ação de exportação csv
+[horta-observability] {"ts":"2026-06-14T21:29:24.110Z","level":"info","event":"page.render","meta":{"durationMs":81},"page":"historico"}
+
+stdout | src/__tests__/CanteirosPage.test.tsx > valida formulário e cria novo canteiro
+[horta-observability] {"ts":"2026-06-14T21:29:24.157Z","level":"info","event":"canteiro.created","meta":{"id":"cant-bsbmu3","nome":"Canteiro E — Teste"},"page":"canteiros"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.158Z","level":"info","event":"fetch.start","meta":{"section":"canteiros"},"requestId":"canteiros-97905vv7"}
+
+stdout | src/__tests__/CanteirosPage.test.tsx > valida formulário e cria novo canteiro
+[horta-observability] {"ts":"2026-06-14T21:29:24.163Z","level":"info","event":"fetch.success","meta":{"section":"canteiros","size":1},"requestId":"canteiros-97905vv7"}
+
+ ✓ src/__tests__/CanteirosPage.test.tsx (1 test) 158ms
+ ✓ src/__tests__/HistoryPage.test.tsx (1 test) 163ms
+stdout | src/__tests__/Dashboard.test.tsx > mostra estado de erro quando a carga inicial da principal falha
+[horta-observability] {"ts":"2026-06-14T21:29:24.210Z","level":"info","event":"page.render","meta":{"durationMs":55},"page":"principal"}
+
+ ✓ src/__tests__/Dashboard.test.tsx (2 tests) 147ms
+stdout | src/__tests__/AppNavigation.test.tsx > navega entre as 4 telas do dashboard completo
+[horta-observability] {"ts":"2026-06-14T21:29:24.294Z","level":"info","event":"fetch.success","meta":{"section":"canteiros","size":4},"requestId":"canteiros-b0h54wxa"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.295Z","level":"info","event":"fetch.success","meta":{"section":"dashboard","size":4},"requestId":"dashboard-nuvbgl6o"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.295Z","level":"info","event":"fetch.success","meta":{"section":"dashboard","size":4},"requestId":"dashboard-quuoy1ai"}
+
+stdout | src/__tests__/CriticalFlow.test.tsx > fluxo crítico: principal → alertas → vê alerta → vai para o histórico
+[horta-observability] {"ts":"2026-06-14T21:29:24.293Z","level":"info","event":"fetch.success","meta":{"section":"canteiros","size":4},"requestId":"canteiros-2jmw7vpe"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.294Z","level":"info","event":"fetch.success","meta":{"section":"dashboard","size":4},"requestId":"dashboard-zyq583te"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.294Z","level":"info","event":"fetch.success","meta":{"section":"dashboard","size":4},"requestId":"dashboard-mgep5ujz"}
+
+stdout | src/__tests__/Observability.test.tsx > gera logs estruturados e métricas mínimas no front
+[horta-observability] {"ts":"2026-06-14T21:29:24.293Z","level":"info","event":"fetch.success","meta":{"section":"canteiros","size":4},"requestId":"canteiros-e5ckctfn"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.293Z","level":"info","event":"fetch.success","meta":{"section":"dashboard","size":4},"requestId":"dashboard-c6xi8fjo"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.294Z","level":"info","event":"fetch.success","meta":{"section":"dashboard","size":4},"requestId":"dashboard-0boqpyz2"}
+
+stdout | src/__tests__/Observability.test.tsx > gera logs estruturados e métricas mínimas no front
+[observability-evidence] {
+  "logs": [
+    {
+      "ts": "2026-06-14T21:29:24.106Z",
+      "level": "info",
+      "event": "page.view",
+      "meta": {},
+      "page": "principal"
+    },
+    {
+      "ts": "2026-06-14T21:29:24.107Z",
+      "level": "info",
+      "event": "fetch.start",
+      "meta": {
+        "section": "canteiros"
+      },
+      "requestId": "canteiros-e5ckctfn"
+    },
+    {
+      "ts": "2026-06-14T21:29:24.108Z",
+      "level": "info",
+      "event": "fetch.start",
+      "meta": {
+        "section": "dashboard"
+      },
+      "requestId": "dashboard-c6xi8fjo"
+    },
+    {
+      "ts": "2026-06-14T21:29:24.108Z",
+      "level": "info",
+      "event": "fetch.start",
+      "meta": {
+        "section": "dashboard"
+      },
+      "requestId": "dashboard-0boqpyz2"
+    },
+    {
+      "ts": "2026-06-14T21:29:24.109Z",
+      "level": "info",
+      "event": "app.route.changed",
+      "meta": {
+        "route": "principal"
+      },
+      "page": "app"
+    },
+    {
+      "ts": "2026-06-14T21:29:24.125Z",
+      "level": "info",
+      "event": "page.render",
+      "meta": {
+        "durationMs": 19
+      },
+      "page": "principal"
+    },
+    {
+      "ts": "2026-06-14T21:29:24.293Z",
+      "level": "info",
+      "event": "fetch.success",
+      "meta": {
+        "section": "canteiros",
+        "size": 4
+      },
+      "requestId": "canteiros-e5ckctfn"
+    },
+    {
+      "ts": "2026-06-14T21:29:24.293Z",
+      "level": "info",
+      "event": "fetch.success",
+      "meta": {
+        "section": "dashboard",
+        "size": 4
+      },
+      "requestId": "dashboard-c6xi8fjo"
+    },
+    {
+      "ts": "2026-06-14T21:29:24.294Z",
+      "level": "info",
+      "event": "fetch.success",
+      "meta": {
+        "section": "dashboard",
+        "size": 4
+      },
+      "requestId": "dashboard-0boqpyz2"
+    }
+  ],
+  "metrics": {
+    "fetchErrors": 0,
+    "pageRenderMs": {
+      "principal": 19
+    },
+    "alertsRendered": 0
+  }
+}
+
+ ✓ src/__tests__/Observability.test.tsx (1 test) 252ms
+stdout | src/__tests__/AppNavigation.test.tsx > navega entre as 4 telas do dashboard completo
+[horta-observability] {"ts":"2026-06-14T21:29:24.366Z","level":"info","event":"page.view","meta":{},"page":"alertas"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.366Z","level":"info","event":"fetch.start","meta":{"section":"alertas"},"requestId":"alertas-ptvvdlyd"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.366Z","level":"info","event":"app.route.changed","meta":{"route":"alertas"},"page":"app"}
+
+stdout | src/__tests__/CriticalFlow.test.tsx > fluxo crítico: principal → alertas → vê alerta → vai para o histórico
+[horta-observability] {"ts":"2026-06-14T21:29:24.368Z","level":"info","event":"page.view","meta":{},"page":"alertas"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.368Z","level":"info","event":"fetch.start","meta":{"section":"alertas"},"requestId":"alertas-yadiyb5j"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.368Z","level":"info","event":"app.route.changed","meta":{"route":"alertas"},"page":"app"}
+
+stdout | src/__tests__/AppNavigation.test.tsx > navega entre as 4 telas do dashboard completo
+[horta-observability] {"ts":"2026-06-14T21:29:24.387Z","level":"info","event":"page.render","meta":{"durationMs":21},"page":"alertas"}
+
+stdout | src/__tests__/CriticalFlow.test.tsx > fluxo crítico: principal → alertas → vê alerta → vai para o histórico
+[horta-observability] {"ts":"2026-06-14T21:29:24.386Z","level":"info","event":"page.render","meta":{"durationMs":18},"page":"alertas"}
+
+stdout | src/__tests__/CriticalFlow.test.tsx > fluxo crítico: principal → alertas → vê alerta → vai para o histórico
+[horta-observability] {"ts":"2026-06-14T21:29:24.551Z","level":"info","event":"fetch.success","meta":{"section":"alertas","size":4},"requestId":"alertas-yadiyb5j"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.559Z","level":"info","event":"alerts.rendered","meta":{"count":4},"page":"alertas"}
+
+stdout | src/__tests__/AppNavigation.test.tsx > navega entre as 4 telas do dashboard completo
+[horta-observability] {"ts":"2026-06-14T21:29:24.552Z","level":"info","event":"fetch.success","meta":{"section":"alertas","size":4},"requestId":"alertas-ptvvdlyd"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.561Z","level":"info","event":"alerts.rendered","meta":{"count":4},"page":"alertas"}
+
+stdout | src/__tests__/AppNavigation.test.tsx > navega entre as 4 telas do dashboard completo
+[horta-observability] {"ts":"2026-06-14T21:29:24.572Z","level":"info","event":"page.view","meta":{},"page":"historico"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.572Z","level":"info","event":"fetch.start","meta":{"section":"historico"},"requestId":"historico-fc2np54c"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.572Z","level":"info","event":"app.route.changed","meta":{"route":"historico"},"page":"app"}
+
+stdout | src/__tests__/AppNavigation.test.tsx > navega entre as 4 telas do dashboard completo
+[horta-observability] {"ts":"2026-06-14T21:29:24.592Z","level":"info","event":"page.render","meta":{"durationMs":20},"page":"historico"}
+
+stdout | src/__tests__/CriticalFlow.test.tsx > fluxo crítico: principal → alertas → vê alerta → vai para o histórico
+[horta-observability] {"ts":"2026-06-14T21:29:24.593Z","level":"info","event":"page.view","meta":{},"page":"historico"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.593Z","level":"info","event":"fetch.start","meta":{"section":"historico"},"requestId":"historico-km9c23j1"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.594Z","level":"info","event":"app.route.changed","meta":{"route":"historico"},"page":"app"}
+
+stdout | src/__tests__/CriticalFlow.test.tsx > fluxo crítico: principal → alertas → vê alerta → vai para o histórico
+[horta-observability] {"ts":"2026-06-14T21:29:24.611Z","level":"info","event":"page.render","meta":{"durationMs":18},"page":"historico"}
+
+stdout | src/__tests__/AppNavigation.test.tsx > navega entre as 4 telas do dashboard completo
+[horta-observability] {"ts":"2026-06-14T21:29:24.757Z","level":"info","event":"fetch.success","meta":{"section":"historico","size":48},"requestId":"historico-fc2np54c"}
+
+stdout | src/__tests__/AppNavigation.test.tsx > navega entre as 4 telas do dashboard completo
+[horta-observability] {"ts":"2026-06-14T21:29:24.776Z","level":"info","event":"page.view","meta":{},"page":"canteiros"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.776Z","level":"info","event":"fetch.start","meta":{"section":"canteiros"},"requestId":"canteiros-g168eh5i"}
+[horta-observability] {"ts":"2026-06-14T21:29:24.776Z","level":"info","event":"app.route.changed","meta":{"route":"canteiros"},"page":"app"}
+
+stdout | src/__tests__/CriticalFlow.test.tsx > fluxo crítico: principal → alertas → vê alerta → vai para o histórico
+[horta-observability] {"ts":"2026-06-14T21:29:24.776Z","level":"info","event":"fetch.success","meta":{"section":"historico","size":48},"requestId":"historico-km9c23j1"}
+
+ ✓ src/__tests__/CriticalFlow.test.tsx (1 test) 708ms
+   ✓ fluxo crítico: principal → alertas → vê alerta → vai para o histórico 707ms
+stdout | src/__tests__/AppNavigation.test.tsx > navega entre as 4 telas do dashboard completo
+[horta-observability] {"ts":"2026-06-14T21:29:24.804Z","level":"info","event":"page.render","meta":{"durationMs":28},"page":"canteiros"}
+
+stdout | src/__tests__/AppNavigation.test.tsx > navega entre as 4 telas do dashboard completo
+[horta-observability] {"ts":"2026-06-14T21:29:24.958Z","level":"info","event":"fetch.success","meta":{"section":"canteiros","size":4},"requestId":"canteiros-g168eh5i"}
+
+ ✓ src/__tests__/AppNavigation.test.tsx (1 test) 885ms
+   ✓ navega entre as 4 telas do dashboard completo 885ms
+
+ Test Files  10 passed (10)
+      Tests  15 passed (15)
+   Start at  18:29:21
+   Duration  3.28s (transform 490ms, setup 2.14s, collect 2.44s, tests 2.49s, environment 11.61s, prepare 1.47s)
+
