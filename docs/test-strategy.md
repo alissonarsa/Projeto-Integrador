@@ -131,9 +131,11 @@ linhas de UI abaixo.
 | FR-09 (WF-04) | Cadastro aceitar nome inválido (validação ausente) | acceptance | `CanteirosPage.test.tsx` → "valida formulário e cria novo canteiro" |
 | NFR observabilidade | Front não emitir logs estruturados / métricas mínimas | integration | `Observability.test.tsx` → "gera logs estruturados e métricas mínimas no front" |
 | UC-03 (fluxo crítico) | Usuário não conseguir ir de um alerta concreto até a investigação no histórico | E2E (acceptance) | `CriticalFlow.test.tsx` → "fluxo crítico: principal → alertas → vê alerta → vai para o histórico" + `AppNavigation.test.tsx` → "navega entre as 4 telas do dashboard completo" |
+| UC-01/E1 + C1 integridade | Leitura impossível do ESP32, como `-999 °C` ou `4000 %`, atravessar a fronteira `MockDashboardClient → Dashboard.tsx` e contaminar KPI, sparkline, `alertasAtivos` ou `sensoresOff` | unit + acceptance | `dashboard/src/__tests__/sanitizeLeitura.test.ts` → "exclui leitura impossível dos agregados e preserva borda legítima de 52,4 °C" / "MockDashboardClient saneia a fronteira antes de entregar dados para a tela" / "Dashboard mostra saúde da coleta e não renderiza valores impossíveis nos KPIs/cards/sparkline" |
 
 ### Evidência de execução
 
+- A2 C1 — Integridade de dados: `dashboard/src/__tests__/sanitizeLeitura.test.ts` — `npm test -- --run src/__tests__/sanitizeLeitura.test.ts` (1 arquivo / 4 testes, verde); regressão completa `npm test -- --run` (11 arquivos / 19 testes, verdes); build `npm run build` sem erro de TypeScript.
 - `docs/dashboard/evidencias/vitest-a1-8.txt` — saída completa de `vitest run` (9 arquivos / 12 testes, verdes).
 - `docs/releases/evidencias/vite-build-a1-8.txt` — `tsc --noEmit && vite build` sem erros.
 - Contrato (v0.1): `docs/test-strategy/evidencias/pytest-contract-api-ref-2026-05-10.txt`.

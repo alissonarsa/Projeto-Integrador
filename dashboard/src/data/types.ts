@@ -1,4 +1,5 @@
 export type IrrigacaoEstado = 'on' | 'off' | 'falha_rele';
+
 export type AlertaTipo =
   | 'umidade-critica'
   | 'sensor-offline'
@@ -25,6 +26,7 @@ export interface Leitura {
   parcial?: boolean;
   sensorOffline?: boolean;
   suspeita?: boolean;
+  suspeitaMotivos?: string[];
 }
 
 export interface Alerta {

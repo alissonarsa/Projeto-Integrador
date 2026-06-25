@@ -11,6 +11,7 @@ export interface MetricsSnapshot {
   fetchErrors: number;
   pageRenderMs: Record<string, number>;
   alertsRendered: number;
+  invalidReadings: number;
 }
 
 declare global {
@@ -27,17 +28,30 @@ const store = {
   metrics: {
     fetchErrors: 0,
     pageRenderMs: {} as Record<string, number>,
-    alertsRendered: 0
-  }
+    alertsRendered: 0,
+    invalidReadings: 0,
+  },
 };
+
+function snapshotMetrics(): MetricsSnapshot {
+  return {
+    ...store.metrics,
+    pageRenderMs: { ...store.metrics.pageRenderMs },
+  };
+}
 
 function emit(log: StructuredLog): void {
   store.logs.push(log);
   if (store.logs.length > 100) store.logs.shift();
+
   if (typeof window !== 'undefined') {
-    window.__HORTA_OBS__ = { logs: [...store.logs], metrics: { ...store.metrics, pageRenderMs: { ...store.metrics.pageRenderMs } } };
+    window.__HORTA_OBS__ = {
+      logs: [...store.logs],
+      metrics: snapshotMetrics(),
+    };
     window.dispatchEvent(new CustomEvent('horta-observability:update'));
   }
+
   const line = `[horta-observability] ${JSON.stringify(log)}`;
   if (log.level === 'error') console.error(line);
   else if (log.level === 'warn') console.warn(line);
@@ -48,17 +62,41 @@ export function newRequestId(prefix: string): string {
   return `${prefix}-${Math.random().toString(36).slice(2, 10)}`;
 }
 
-export function logInfo(event: string, meta: Record<string, unknown> = {}, page?: string, requestId?: string): void {
+export function logInfo(
+  event: string,
+  meta: Record<string, unknown> = {},
+  page?: string,
+  requestId?: string,
+): void {
   emit({ ts: new Date().toISOString(), level: 'info', event, meta, page, requestId });
 }
 
-export function logWarn(event: string, meta: Record<string, unknown> = {}, page?: string, requestId?: string): void {
+export function logWarn(
+  event: string,
+  meta: Record<string, unknown> = {},
+  page?: string,
+  requestId?: string,
+): void {
   emit({ ts: new Date().toISOString(), level: 'warn', event, meta, page, requestId });
 }
 
-export function logError(event: string, meta: Record<string, unknown> = {}, page?: string, requestId?: string): void {
+export function logError(
+  event: string,
+  meta: Record<string, unknown> = {},
+  page?: string,
+  requestId?: string,
+): void {
   store.metrics.fetchErrors += 1;
   emit({ ts: new Date().toISOString(), level: 'error', event, meta, page, requestId });
+}
+
+export function recordInvalidReading(
+  meta: Record<string, unknown> = {},
+  page = 'dashboard',
+  requestId?: string,
+): void {
+  store.metrics.invalidReadings += 1;
+  logWarn('sensor.reading.invalid', meta, page, requestId);
 }
 
 export function recordPageRender(page: string, durationMs: number): void {
@@ -71,10 +109,13 @@ export function recordAlertsRendered(count: number): void {
   logInfo('alerts.rendered', { count }, 'alertas');
 }
 
-export function getObservabilitySnapshot(): { logs: StructuredLog[]; metrics: MetricsSnapshot } {
+export function getObservabilitySnapshot(): {
+  logs: StructuredLog[];
+  metrics: MetricsSnapshot;
+} {
   return {
     logs: [...store.logs],
-    metrics: { ...store.metrics, pageRenderMs: { ...store.metrics.pageRenderMs } }
+    metrics: snapshotMetrics(),
   };
 }
 
@@ -82,5 +123,13 @@ export function resetObservability(): void {
   store.logs.length = 0;
   store.metrics.fetchErrors = 0;
   store.metrics.alertsRendered = 0;
+  store.metrics.invalidReadings = 0;
   store.metrics.pageRenderMs = {};
+
+  if (typeof window !== 'undefined') {
+    window.__HORTA_OBS__ = {
+      logs: [],
+      metrics: snapshotMetrics(),
+    };
+  }
 }
