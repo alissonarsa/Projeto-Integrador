@@ -1,6 +1,6 @@
 import type { Alerta, Canteiro, IrrigacaoEvento, Leitura, ResumoSemanal } from '../types';
 
-const agora = new Date('2026-06-12T19:30:00Z').getTime();
+const agora = Date.now();
 const horasAtras = (h: number) => new Date(agora - h * 60 * 60 * 1000).toISOString();
 const minutosAtras = (m: number) => new Date(agora - m * 60 * 1000).toISOString();
 
